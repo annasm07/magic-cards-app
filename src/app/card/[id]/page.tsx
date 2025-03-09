@@ -1,4 +1,6 @@
 "use client";
+import CardDetail from "@/app/components/CardDetail";
+import { isNullOrUndefined } from "@/app/utils/helpers";
 import { fetchCard } from "@/infra/card";
 import { Card } from "@/types/Card";
 import { usePathname } from "next/navigation";
@@ -31,6 +33,6 @@ export default function DetailPage() {
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
-    <p>This will have the detail of the selected Card {card?.name}</p>
+    !isNullOrUndefined(card) && <CardDetail card={card as Card} />
   );
 }
