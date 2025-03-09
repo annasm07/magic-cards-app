@@ -1,4 +1,5 @@
 import { Card } from "@/types/Card";
+import Link from "next/link";
 
 export default async function Home() {
   const data = await fetch(
@@ -15,7 +16,9 @@ export default async function Home() {
         <h1>Magic Cards App</h1>
 
         {cards.map((card: Card) => (
-          <p key={card.id}>{card.name}</p>
+          <Link key={card.id} href={`/card/${card.id}`}>
+            <p>{card.name}</p>
+          </Link>
         ))}
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
