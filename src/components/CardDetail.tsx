@@ -10,7 +10,7 @@ const DEFAULT_CARD_IMAGE =
 
 export default function CardDetail({ card }: CardDetailProps) {
   return (
-    <div className="bg-[#1A1A1A] text-[#EAEAEA] border border-[#FFD700] rounded-lg shadow-md p-6 max-w-md mx-auto mt-8 sm:min-w-110">
+    <div className="bg-[#1A1A1A] text-[#EAEAEA] border border-[#FFD700] rounded-lg shadow-md p-6 max-w-md mx-auto mt-4 sm:min-w-110">
       <div className="w-full h-140 relative mb-4">
         <Image
           src={card.imageUrl ?? DEFAULT_CARD_IMAGE}

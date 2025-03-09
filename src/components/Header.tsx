@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-[#1A1A1A] text-[#EAEAEA] sticky top-0">
+    <header className="bg-[#1A1A1A] text-[#EAEAEA] sticky top-0 z-1">
       <div className="container mx-auto flex flex-wrap flex-col sm:flex-row items-center justify-between p-4 gap-8">
         <Link href="/">
           <h1 className="text-2xl font-bold text-[#FFD700] cursor-pointer">

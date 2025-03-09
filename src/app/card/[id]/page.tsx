@@ -3,12 +3,18 @@ import CardDetail from "@/components/CardDetail";
 import { isNullOrUndefined } from "@/utils/helpers";
 import { fetchCard } from "@/infra/card";
 import { Card } from "@/types/Card";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Button from "@/components/Button";
 
 export default function DetailPage() {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [card, setCard] = useState<Card | null>(null);
+
+  const handleBackClick = () => {
+    router.back();
+  };
 
   const pathname = usePathname();
   const cardId = pathname.split("/")[2];
@@ -33,6 +39,11 @@ export default function DetailPage() {
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
-    !isNullOrUndefined(card) && <CardDetail card={card as Card} />
+    !isNullOrUndefined(card) && (
+      <>
+        <Button onClick={handleBackClick} text="&larr; Go Back" />
+        <CardDetail card={card as Card} />)
+      </>
+    )
   );
 }
