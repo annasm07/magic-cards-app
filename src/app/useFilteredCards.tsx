@@ -1,5 +1,5 @@
 import { Card } from "@/types/Card";
-import { hasText } from "./utils/helpers";
+import { hasText } from "../utils/helpers";
 
 export const useFilteredCards = (searchTerm: string, cards: Card[]) => {
   if (!Array.isArray(cards)) {

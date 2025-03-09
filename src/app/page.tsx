@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import CardList from "./components/CardList";
+import CardList from "../components/CardList";
 import { fetchCards } from "@/infra/card";
 import { Card } from "@/types/Card";
 import { useFilteredCards } from "./useFilteredCards";

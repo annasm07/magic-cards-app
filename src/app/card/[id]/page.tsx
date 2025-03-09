@@ -1,6 +1,6 @@
 "use client";
-import CardDetail from "@/app/components/CardDetail";
-import { isNullOrUndefined } from "@/app/utils/helpers";
+import CardDetail from "@/components/CardDetail";
+import { isNullOrUndefined } from "@/utils/helpers";
 import { fetchCard } from "@/infra/card";
 import { Card } from "@/types/Card";
 import { usePathname } from "next/navigation";
