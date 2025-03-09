@@ -20,7 +20,7 @@ export default function DetailPage() {
         setCard(cards[0]);
         setIsLoading(false);
       } catch {
-        console.error("Failed to fetch cards");
+        console.error("Failed to fetch card");
         setIsLoading(false);
       }
     };
