@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { geistMono, geistSans } from "./ui/fonts";
+import { geistMono, geistSans } from "../ui/fonts";
 
 export const metadata: Metadata = {
   title: "Magic Cards App",
