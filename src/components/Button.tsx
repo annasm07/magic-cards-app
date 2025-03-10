@@ -1,18 +1,20 @@
 "use client";
 
 interface ButtonProps {
-  text: string;
   onClick: () => void;
+  children: React.ReactNode;
+  disabled: boolean;
 }
 
-export default function Button({ text, onClick }: ButtonProps) {
+export default function Button({ children, onClick, disabled }: ButtonProps) {
   return (
     <button
       role="button"
       onClick={onClick}
-      className="flex items-center space-x-2 bg-[#FFD700] text-[#1A1A1A] font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#D4AF37] transition max-w-32 m-8"
+      disabled={disabled}
+      className="flex items-center space-x-2 bg-[#FFD700] text-[#1A1A1A] font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#D4AF37] transition max-w-32 m-6"
     >
-      <span>{text}</span>
+      {children}
     </button>
   );
 }

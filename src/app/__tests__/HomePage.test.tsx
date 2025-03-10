@@ -4,6 +4,10 @@ import { mockedCards } from "@/__mocks__/cards.mock";
 
 const mockedFetchCards = jest.fn();
 
+jest.mock("react-window", () => ({
+  VariableSizeGrid: () => <p>Ancestor&apos;s Chosen</p>,
+}));
+
 jest.mock("../../infra/card", () => ({
   fetchCards: () => mockedFetchCards,
 }));

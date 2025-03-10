@@ -43,7 +43,9 @@ export default function DetailPage() {
 
   return (
     <>
-      <Button onClick={handleBackClick} text="&larr; Go Back" />
+      <Button onClick={handleBackClick} disabled={false}>
+        &larr; Go Back
+      </Button>
       {isNullOrUndefined(card) ? (
         <p className="text-md italic text-[#1A1A1A] mb-8">
           Sorry! The selected card could not be found. Plase go back and try

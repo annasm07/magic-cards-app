@@ -19,7 +19,9 @@ export default function Error({
       <h2 className="text-xl font-bold text-[#1A1A1A] mb-2">
         Something went wrong!
       </h2>
-      <Button text={"Try again"} onClick={() => reset()} />
+      <Button disabled={false} onClick={() => reset()}>
+        Try again
+      </Button>
     </div>
   );
 }

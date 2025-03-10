@@ -5,9 +5,9 @@ export const fetchCard = async (id: Card["id"]): Promise<{ cards: Card[] }> => {
   return res.json();
 };
 
-export const fetchCards = async (): Promise<{ cards: Card[] }> => {
+export const fetchCards = async (page: number): Promise<{ cards: Card[] }> => {
   const res = await fetch(
-    "https://api.magicthegathering.io/v1/cards?pageSize=25"
+    `https://api.magicthegathering.io/v1/cards?page=${page}`
   );
   return res.json();
 };
