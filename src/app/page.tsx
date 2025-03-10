@@ -4,9 +4,9 @@ import { VariableSizeGrid as Grid } from "react-window";
 import { fetchCards } from "@/infra/card";
 import { Card } from "@/types/Card";
 import { useFilteredCards } from "./useFilteredCards";
-import CardListItem from "@/components/CardListItem";
 import Pagintation from "@/components/Pagination";
 import { useListConfig } from "./useListConfig";
+import CardRow from "@/components/CardRow";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -64,7 +64,7 @@ export default function Home() {
               width={width}
               itemData={cards}
             >
-              {CardListItem}
+              {CardRow}
             </Grid>
           </div>
         )}
