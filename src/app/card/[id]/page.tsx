@@ -9,6 +9,8 @@ import Button from "@/components/Button";
 
 export default function DetailPage() {
   const router = useRouter();
+  const pathname = usePathname();
+
   const [isLoading, setIsLoading] = useState(true);
   const [card, setCard] = useState<Card | null>(null);
 
@@ -16,7 +18,6 @@ export default function DetailPage() {
     router.back();
   };
 
-  const pathname = usePathname();
   const cardId = pathname.split("/")[2];
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function DetailPage() {
         setCard(cards[0]);
         setIsLoading(false);
       } catch {
-        console.error("Failed to fetch card");
+        setCard(null);
         setIsLoading(false);
       }
     };
@@ -36,14 +37,21 @@ export default function DetailPage() {
     getCard();
   }, [cardId]);
 
-  return isLoading ? (
-    <p>Loading ...</p>
-  ) : (
-    !isNullOrUndefined(card) && (
-      <>
-        <Button onClick={handleBackClick} text="&larr; Go Back" />
-        <CardDetail card={card as Card} />)
-      </>
-    )
+  if (isLoading) {
+    return <p>Loading ...</p>;
+  }
+
+  return (
+    <>
+      <Button onClick={handleBackClick} text="&larr; Go Back" />
+      {isNullOrUndefined(card) ? (
+        <p className="text-md italic text-[#1A1A1A] mb-8">
+          Sorry! The selected card could not be found. Plase go back and try
+          again.
+        </p>
+      ) : (
+        <CardDetail card={card as Card} />
+      )}
+    </>
   );
 }

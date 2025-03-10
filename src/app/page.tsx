@@ -29,9 +29,11 @@ export default function Home() {
 
   const fiteredCards = useFilteredCards(searchTerm, cards);
 
-  return isLoading ? (
-    <p>Loading ...</p>
-  ) : (
+  if (isLoading) {
+    return <p>Loading ...</p>;
+  }
+
+  return (
     <div className="flex flex-col items-center justify-items-center m-16">
       <input
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 md:w-sm"
@@ -40,7 +42,13 @@ export default function Home() {
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-      <CardList cards={fiteredCards} />
+      {fiteredCards?.length === 0 ? (
+        <p className="text-md italic text-[#1A1A1A] mb-8">
+          Sorry! No cards were found
+        </p>
+      ) : (
+        <CardList cards={fiteredCards} />
+      )}
     </div>
   );
 }
