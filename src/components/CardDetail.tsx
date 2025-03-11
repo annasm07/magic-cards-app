@@ -5,15 +5,12 @@ interface CardDetailProps {
   card: Card;
 }
 
-const DEFAULT_CARD_IMAGE =
-  "https://propagandamtg.com/cdn/shop/files/mtg_placeholder_2bfc0f4d-50f6-4158-9104-ffb14d2fe7c5_800x.png?v=1736530948";
-
 export default function CardDetail({ card }: CardDetailProps) {
   return (
     <div className="bg-[#1A1A1A] text-[#EAEAEA] border border-[#FFD700] rounded-lg shadow-md p-6 max-w-md mx-auto mt-4 sm:min-w-110">
       <div className="w-full h-140 relative mb-4">
         <Image
-          src={card.imageUrl ?? DEFAULT_CARD_IMAGE}
+          src={card.imageUrl}
           alt={card.name}
           layout="fill"
           objectFit="cover"
@@ -27,8 +24,8 @@ export default function CardDetail({ card }: CardDetailProps) {
 
       <p className="text-md mb-2">Mana Cost: {card.manaCost}</p>
       <p className="text-md mb-2">Rarity: {card.rarity}</p>
-      <p className="text-md mb-2">Set: {card.setName}</p>
-      <p className="text-md mb-4">Illustrated by: {card.artist}</p>
+      <p className="text-md mb-2">Set: {card.set}</p>
+      <p className="text-md mb-4">Illustrated by: {card.illustrator}</p>
 
       <div className="bg-[#121212] p-4 rounded-md border border-[#FFD700]">
         <h3 className="text-[#FFD700] font-semibold mb-1">Card Text:</h3>

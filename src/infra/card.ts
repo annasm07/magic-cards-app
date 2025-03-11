@@ -1,11 +1,16 @@
-import { Card } from "@/types/Card";
+import { CardDTO, Card } from "@/types/Card";
 
-export const fetchCard = async (id: Card["id"]): Promise<{ cards: Card[] }> => {
+export const fetchCard = async (
+  id: Card["id"]
+): Promise<{ cards: CardDTO[] }> => {
   const res = await fetch(`https://api.magicthegathering.io/v1/cards?id=${id}`);
+
   return res.json();
 };
 
-export const fetchCards = async (page: number): Promise<{ cards: Card[] }> => {
+export const fetchCards = async (
+  page: number
+): Promise<{ cards: CardDTO[] }> => {
   const res = await fetch(
     `https://api.magicthegathering.io/v1/cards?page=${page}`
   );

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import DetailPage from "../card/[id]/page";
-import { mockedCards } from "@/__mocks__/cards.mock";
+import { mockedCardsDTO } from "@/__mocks__/cards.mock";
 import { fetchCard } from "@/infra/card";
 
 const mockedRouterBack = jest.fn();
@@ -45,7 +45,7 @@ describe("DetailPage Component", () => {
   });
 
   it("renders the card successfully after data is fetched", async () => {
-    (fetchCard as jest.Mock).mockResolvedValue({ cards: [mockedCards[0]] });
+    (fetchCard as jest.Mock).mockResolvedValue({ cards: [mockedCardsDTO[0]] });
 
     render(<DetailPage />);
 
@@ -55,7 +55,7 @@ describe("DetailPage Component", () => {
   });
 
   it("renders calls the router when the button is clicked", async () => {
-    (fetchCard as jest.Mock).mockResolvedValue({ cards: [mockedCards[0]] });
+    (fetchCard as jest.Mock).mockResolvedValue({ cards: [mockedCardsDTO[0]] });
 
     render(<DetailPage />);
 

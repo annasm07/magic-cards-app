@@ -1,6 +1,19 @@
 type MultiverseId = string | number;
 
 export interface Card {
+  id: string;
+  name: string;
+  type: string;
+  manaCost: string;
+  rarity: string;
+  set: string;
+  illustrator: string;
+  text: string;
+  imageUrl: string;
+  colors: string[];
+}
+
+export interface CardDTO {
   name: string;
   names?: string[];
   manaCost: string;

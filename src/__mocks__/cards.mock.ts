@@ -1,4 +1,6 @@
-export const mockedCards = [
+import { Card, CardDTO } from "@/types/Card";
+
+export const mockedCardsDTO: CardDTO[] = [
   {
     name: "Ancestor's Chosen",
     manaCost: "{5}{W}{W}",
@@ -345,5 +347,34 @@ export const mockedCards = [
       { format: "Vintage", legality: "Legal" },
     ],
     id: "8ac972b5-9f6e-5cc8-91c3-b9a40a98232e",
+  },
+];
+
+export const mockedCards: Card[] = [
+  {
+    name: "Ancestor's Chosen",
+    manaCost: "{5}{W}{W}",
+    type: "Creature — Human Cleric",
+    rarity: "Uncommon",
+    set: "10E",
+    text: "First strike (This creature deals combat damage before creatures without first strike.)\nWhen Ancestor's Chosen enters the battlefield, you gain 1 life for each card in your graveyard.",
+    illustrator: "Pete Venters",
+    imageUrl:
+      "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
+    id: "5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c",
+    colors: ["W"],
+  },
+  {
+    name: "Aven Cloudchaser",
+    manaCost: "{3}{W}",
+    type: "Creature — Bird Soldier",
+    rarity: "Common",
+    set: "10E",
+    text: "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen Aven Cloudchaser enters the battlefield, destroy target enchantment.",
+    illustrator: "Justin Sweet",
+    imageUrl:
+      "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129470&type=card",
+    id: "8ac972b5-9f6e-5cc8-91c3-b9a40a98232e",
+    colors: ["W"],
   },
 ];

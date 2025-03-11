@@ -12,7 +12,7 @@ jest.mock("../../infra/card", () => ({
   fetchCards: () => mockedFetchCards,
 }));
 
-jest.mock("../useFilteredCards", () => {
+jest.mock("../hooks/useFilteredCards", () => {
   return {
     useFilteredCards: (searchTerm: string) => {
       return searchTerm ? [mockedCards[0]] : [];

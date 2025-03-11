@@ -1,35 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { VariableSizeGrid as Grid } from "react-window";
-import { fetchCards } from "@/infra/card";
-import { Card } from "@/types/Card";
-import { useFilteredCards } from "./useFilteredCards";
+import { useFilteredCards } from "./hooks/useFilteredCards";
 import Pagintation from "@/components/Pagination";
-import { useListConfig } from "./useListConfig";
+import { useListConfig } from "./hooks/useListConfig";
 import CardRow from "@/components/CardRow";
+import { useCards } from "./hooks/useCards";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [cards, setCards] = useState<Card[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    const getCards = async () => {
-      try {
-        setIsLoading(true);
-        const { cards } = await fetchCards(currentPage);
-
-        setCards(cards);
-        setIsLoading(false);
-      } catch {
-        console.error("Failed to fetch cards");
-        setIsLoading(false);
-      }
-    };
-
-    getCards();
-  }, [currentPage]);
+  const { isLoading, cards, onChangeCurrentPage, currentPage } = useCards();
 
   const { columnCount, rowCount, width } = useListConfig();
 
@@ -70,7 +51,7 @@ export default function Home() {
         )}
       </div>
       <Pagintation
-        onPageChange={(newPage: number) => setCurrentPage(newPage)}
+        onPageChange={(newPage: number) => onChangeCurrentPage(newPage)}
         currentPage={currentPage}
         totalPages={100}
       />

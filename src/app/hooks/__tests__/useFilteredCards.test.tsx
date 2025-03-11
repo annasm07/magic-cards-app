@@ -3,12 +3,12 @@ import { useFilteredCards } from "../useFilteredCards";
 import { mockedCards } from "@/__mocks__/cards.mock";
 
 describe("useFilteredCards", () => {
+  // @ts-expect-error - proposal test
   const invalidCases = [undefined, null, []];
 
   it.each(invalidCases)(
     "should return an empty array when %p is passed",
     (invalidCase) => {
-      // @ts-expect-error - proposal test
       const filteredItem = useFilteredCards("Aven", invalidCase);
 
       expect(filteredItem).toEqual([]);

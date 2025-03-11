@@ -5,8 +5,6 @@ import Link from "next/link";
 interface CardListItemProps {
   card: Card;
 }
-const DEFAULT_CARD_IMAGE =
-  "https://propagandamtg.com/cdn/shop/files/mtg_placeholder_2bfc0f4d-50f6-4158-9104-ffb14d2fe7c5_800x.png?v=1736530948";
 
 export default function CardListItem({ card }: CardListItemProps) {
   return (
@@ -14,7 +12,7 @@ export default function CardListItem({ card }: CardListItemProps) {
       <div className="bg-[#1A1A1A] text-[#EAEAEA] border border-[#FFD700] rounded-lg shadow-md p-4 flex space-x-4 items-center m-2">
         <div className="w-20 h-28 relative">
           <Image
-            src={card.imageUrl ?? DEFAULT_CARD_IMAGE}
+            src={card.imageUrl}
             alt={card.name}
             layout="fill"
             objectFit="cover"
