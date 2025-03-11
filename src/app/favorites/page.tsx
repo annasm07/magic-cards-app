@@ -10,6 +10,9 @@ export default function Favorites() {
 
   return (
     <>
+      <h1 className="absolute text-2xl font-bold text-[#1F4E8C] text-center p-4 mt-4 inset-x-0">
+        Your Favorite Cards
+      </h1>
       <div className="flex flex-col items-center justify-items-center m-16">
         {favoriteCards?.length === 0 ? (
           <p className="text-md italic text-[#1A1A1A] mb-8">

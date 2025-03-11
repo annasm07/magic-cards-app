@@ -14,6 +14,9 @@ export default function Header() {
           <Link href="/" className="hover:text-[#FFD700] transition">
             Home
           </Link>
+          <Link href="/favorites" className="hover:text-[#FFD700] transition">
+            Favorites
+          </Link>
         </nav>
       </div>
     </header>
