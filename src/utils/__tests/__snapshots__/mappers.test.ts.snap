@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mappers mapToCollection should return a card model with the correct properties 1`] = `
+{
+  "colors": [
+    "W",
+  ],
+  "id": "5f8287b1-5bb6-5f4c-ad17-316a40d5bb0c",
+  "illustrator": "Pete Venters",
+  "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
+  "manaCost": "{5}{W}{W}",
+  "name": "Ancestor's Chosen",
+  "rarity": "Uncommon",
+  "set": "Tenth Edition",
+  "text": "First strike (This creature deals combat damage before creatures without first strike.)
+When Ancestor's Chosen enters the battlefield, you gain 1 life for each card in your graveyard.",
+  "type": "Creature — Human Cleric",
+}
+`;

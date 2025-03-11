@@ -6,6 +6,7 @@ import Pagintation from "@/components/Pagination";
 import { useListConfig } from "./hooks/useListConfig";
 import CardRow from "@/components/CardRow";
 import { useCards } from "./hooks/useCards";
+import { useDebouncedText } from "./hooks/useDebouncedText";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,7 +15,9 @@ export default function Home() {
 
   const { columnCount, rowCount, width } = useListConfig();
 
-  const fiteredCards = useFilteredCards(searchTerm, cards);
+  const debouncedSearchValue = useDebouncedText(searchTerm);
+
+  const fiteredCards = useFilteredCards(debouncedSearchValue, cards);
 
   if (isLoading) {
     return <p>Loading ...</p>;
@@ -43,7 +46,7 @@ export default function Home() {
               rowCount={rowCount}
               rowHeight={() => 150}
               width={width}
-              itemData={cards}
+              itemData={fiteredCards || []}
             >
               {CardRow}
             </Grid>

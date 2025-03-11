@@ -32,7 +32,7 @@ export default function DetailPage() {
         </Button>
         <HeartButton
           onClick={() => onFavoriteClick(card)}
-          isActive={isFavorite(card.id)}
+          isActive={isFavorite(card?.id)}
         />
       </div>
       {isNullOrUndefined(card) ? (
