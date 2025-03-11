@@ -26,9 +26,17 @@ To tun test:
 - View all the Magic Cards on a paginated list.
 - Search for Magic Cards by name through the use of a search bar.
 - View Magic Cards details.
+- Add Cards to Favorites
+- View Favorites List
 
 Other implementations:
 
 - Virtualized grid with responsive adaptation.
 - Deployment ready with Docker.
+- Debounced search when filtering.
 
+## App Screenshots
+<img alt="Home" src="Home.png" width="400px">
+<img alt="Home" src="Filter.png" width="400px">
+<img alt="Home" src="Favs.png" width="400px">
+<img alt="Home" src="Detail.png" width="400px">
